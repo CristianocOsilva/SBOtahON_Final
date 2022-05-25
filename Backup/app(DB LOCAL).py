@@ -2,13 +2,13 @@
 from flask import Flask, render_template, request, redirect
 from flask_mysqldb import MySQL
 
-app = Flask(__name__,template_folder=('templates'))
+app = Flask(__name__)
  
-app.config['MYSQL_HOST'] = 'sql10.freesqldatabase.com'
-app.config['MYSQL_USER'] = 'sql10493922'
-app.config['MYSQL_PASSWORD'] = 'mvVHGVl8PU'
-app.config['MYSQL_DB'] = 'sql10493922' #nome do database criado no servidor SQL
-
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'cadastro_fornecedores' #nome do database criado no servidor SQL
+ 
 mysql = MySQL(app) 
 
 @app.route('/', methods =['GET','POST'])
@@ -24,9 +24,8 @@ def home():
         cur.execute("INSERT INTO fornecedores(nome, produto, email, endereco) VALUES(%s, %s, %s, %s)",(nome, produto, email, endereco))
         mysql.connection.commit()
         cur.close()
-        return redirect('/')
+        return redirect('/fornecedores')
     return render_template('index.html')
-            
 
 
 @app.route('/fornecedores')
@@ -36,27 +35,6 @@ def users():
     if resultValue > 0:
         dataDetails = cur.fetchall()
         return render_template('fornecedores.html',dataDetails=dataDetails)
-
-
-
-@app.route('/recomendar', methods =['GET','POST'])
-def recomendar():
-    if request.method == 'POST':
-        dataDetails = request.form
-        nome = dataDetails['nome']
-        produto = dataDetails['produto']
-        email = dataDetails['email']
-        endereco = dataDetails['endereco']
-        cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO fornecedores(nome, produto, email, endereco) VALUES(%s, %s, %s, %s)",(nome, produto, email, endereco))
-        mysql.connection.commit()
-        cur.close()
-        return redirect('/')
-    return render_template('index.html')
-
-
-
-
 
 if __name__ == '__main__':
     app.run(debug=True, host='localhost')
