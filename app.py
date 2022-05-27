@@ -39,20 +39,9 @@ def users():
 
 
 
-@app.route('/recomendar', methods =['GET','POST'])
-def recomendar():
-    if request.method == 'POST':
-        dataDetails = request.form
-        nome = dataDetails['nome']
-        produto = dataDetails['produto']
-        email = dataDetails['email']
-        endereco = dataDetails['endereco']
-        cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO fornecedores(nome, produto, email, endereco) VALUES(%s, %s, %s, %s)",(nome, produto, email, endereco))
-        mysql.connection.commit()
-        cur.close()
-        return redirect('/')
-    return render_template('index.html')
+@app.route('/sobre', methods =['GET','POST'])
+def sobre():
+    return render_template('sobre.html')
 
 
 
