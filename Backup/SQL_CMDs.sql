@@ -1,4 +1,7 @@
 /*#Comandos SQL*/
+MySQL -h sql10.freesqldatabase.com -u sql10499498 -p
+
+
 create database cadastro_produtos; #cria DB
 
 create table usuario ( /*cria table/segmento dentro do DB selecionado*/
@@ -31,4 +34,12 @@ Host: sql10.freesqldatabase.com
 Database name: sql10493922
 Database user: sql10493922
 Database password: mvVHGVl8PU
+Port number: 3306
+
+
+
+Host: sql10.freesqldatabase.com
+Database name: sql10499498
+Database user: sql10499498
+Database password: xCiCNRU9Cx
 Port number: 3306
