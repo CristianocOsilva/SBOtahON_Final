@@ -251,6 +251,7 @@ header nav.desktop-menu li a {
   display: flex;
   justify-content: space-between;
   z-index: 1;
+  margin-bottom: 14px;
 }
 .texto-time{
   width: 50%;
@@ -460,6 +461,10 @@ footer p:nth-of-type(1){ /*pegue o primeiro paragrafo*/
 footer p:nth-of-type(2){
   float: right;
 }
+.text-sessao-1 a{
+  color: white;
+  text-decoration: none;
+}
 /*****************************responsivo***************/
 @media screen and (max-width: 768px) {
   header {
@@ -619,6 +624,28 @@ form input[type=submit]{
   border: 0;
   border-radius: 20px;
   transition: 1s;
+}
+
+.botao-fornecedor{
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  background: #5f7c8a;
+  color: white;
+  border: 0;
+  border-radius: 20px;
+  transition: 1s;
+  margin-top: 14px;
+  background-color: #ff703d;
+  
+}
+.botao-fornecedor a{
+  align-items: center;
+  margin-top: 15px;
+  margin-left: 38%;
+  color: white;
+  text-decoration: none;
+
 }
 
 form input[type=submit]:hover{
